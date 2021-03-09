@@ -15,41 +15,37 @@
     <!-- *** para django *** -->
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
-    <link rel="shortcut icon" type="image/x-icon" href="../static/img/favicon.ico">
+    <!--     <link rel="shortcut icon" type="image/x-icon" href="../static/img/favicon.ico"> -->
 
     <title>Programas TV</title>
 </head>
 
 <body>
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-md navbar-dark bg-success">
-        <div class="container-fluid mx-5">
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <div class="container-fluid mx-5 ">
             <a class="navbar-brand" href="/">
                 <img src="../static/img/logo_libros_y_autores.png" width="250px" alt="Libros&Autores">
             </a>
 
+            <!-- Menu hamburguesa -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-        </button>
+            </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="">Libros</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/agregar_autor">Autores</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="">Volver</a></li>
                 </ul>
             </div>
         </div>
     </nav>
     <!-- FIN NAVBAR -->
-    <div class="row justify-content-md-center mt-5 mb-4">
-        <div class="col text-center">
-            <img src="../static/img/libro.png" width="100px" alt="libro">
-        </div>
-    </div>
+
     <div class="container-lg bg-light mb-5">
         <div class="row">
             <div class="col-sm-6 pt-3">
-                <h3 class="text-center">Agregar LIBRO</h3>
+                <h3 class="text-center">Agregar un nuevo programa</h3>
                 <!-- FORMULARIO DE INGRESO DE LIBRO -->
                 <!-- ACTION = Nombre del URL de Django que apunta al VIEWS que procesa la información enviada desde el formulario -->
 
@@ -103,11 +99,11 @@
 
     <!-- FOOTER -->
 
-    <div id="footer" class="bg-success">
+    <div id="footer" class="bg-dark">
         <div class="container w-50">
             <div class="row justify-content-md-center py-4">
                 <div class="col text-center font-weight-light text-light">
-                    <p>* * * | Fullstack Python 2020 - 2021 | Libros y Autores © TaladropoliS | * * *</p>
+                    <p>* * * Programas Tv * * *</p>
                 </div>
             </div>
             <div class="row"></div>
