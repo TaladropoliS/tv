@@ -4,6 +4,7 @@ __pycache__/
 .vscode
 env/
 venv/
+py3/
 db.sqlite3
 *.psd
 *.pdf
