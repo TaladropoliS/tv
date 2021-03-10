@@ -14,4 +14,9 @@ def crear(request):
     return redirect(programa)
 
 def programa(request):
+    prog_last = Programa.objects.last()
+
+    context = {
+        'prog_last': prog_last,
+    }
     return render(request, 'programa.html', context)

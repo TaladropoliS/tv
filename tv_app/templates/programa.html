@@ -37,7 +37,8 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="/">Volver</a></li>
+                    <li class="nav-item"><a class="nav-link" aria-current="page" href="/">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" aria-current="page" href="/">Programas</a></li>
                 </ul>
             </div>
         </div>
@@ -48,31 +49,12 @@
         <hr style="color: #0056b2" />
         <div class=" row">
             <div class="col-sm-6 pt-3">
-                <h3 class="">Agregar un nuevo Programa</h3>
-                <!-- FORMULARIO PARA AGREGAR PROGRAMA -->
-                <!-- ACTION = Nombre del URL de Django que apunta al VIEWS que procesa la información enviada desde el formulario -->
+                <h4 class="">Tv Programa: {{ prog_last.id }}</h4>
+                <h5 class="">Titulo: {{ prog_last.titulo }}</h5>
+                <h5 class="">Canal: {{ prog_last.canal }}</h5>
+                <h5 class="">Fecha lanzamiento: {{ prog_last.fecha }}</h5>
+                <h5 class="">Descripción: {{ prog_last.desc }}</h5>
 
-                <form id="crear_programa" name="crear_programa" action="crear_programa" method="post"> {% csrf_token %}
-                    <div class="mb-3 p-2">
-                        <label for="titulo" class="form-label">Título</label>
-                        <input type="text" id="titulo" name="titulo" class="form-control" placeholder="Título del Programa">
-
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <label for="canal" class="form-label mt-4">Canal</label>
-                                <input type="text" id="canal" name="canal" class="form-control" placeholder="Canal">
-                            </div>
-                            <div class="col-sm-6">
-                                <label for="fecha" class="form-label mt-4">Fecha</label>
-                                <input type="date" id="fecha" name="fecha" class="form-control">
-                            </div>
-                        </div>
-
-                        <label for="desc" class="form-label mt-4">Descripción</label>
-                        <textarea id="desc" name="desc" class="form-control" rows="3" maxlength="600" placeholder="Descripción del Programa"></textarea>
-                    </div>
-                    <input type="submit" id="crear" name="cxrear" value="Crear Programa" class="btn btn-dark m-l-4"></button>
-                </form>
             </div>
 
             <div class="col-sm-6 pt-3">
