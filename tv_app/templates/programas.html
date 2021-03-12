@@ -56,6 +56,7 @@
                             <th scope="col">Título</th>
                             <th scope="col">Canal</th>
                             <th scope="col">Fecha realización</th>
+                            <th scope="col">Fecha actualización</th>
                             <th scope="col">Acciones</th>
 
                         </tr>
@@ -67,6 +68,7 @@
                             <td>{{ programa.titulo }}</td>
                             <td>{{ programa.canal }}</td>
                             <td>{{ programa.fecha }}</td>
+                            <td>{{ programa.updated_at }}</td>
                             <td><a href="/ver/{{ programa.id }}">Ver</a> |
                                 <a href="/editar/{{ programa.id }}">Editar</a> |
                                 <a href="/borrar/{{ programa.id }}">Borrar</a></td>
