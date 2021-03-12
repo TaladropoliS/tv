@@ -37,44 +37,62 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" aria-current="page" href="/">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" aria-current="page" href="/programas">Programas</a></li>
+                    <li class="nav-item"><a class="nav-link" aria-current="page" href="/">Agregar un nuevo programa</a></li>
                 </ul>
             </div>
         </div>
     </nav>
     <!-- FIN NAVBAR -->
 
-    <!-- MUESTRA EL ULTIMO PROGRAMA INGRESADO -->
+    <!-- MUESTRA TODOS LOS PROGRAMAS -->
     <div class="container-lg bg-light mb-5 mt-2">
         <hr style="color: #0056b2" />
-        <div class=" row">
-            <div class="col-sm-6 pt-3">
-                <h4 class="">Tv Programa: {{ prog_last.id }}</h4>
-                <h5 class="">Titulo: {{ prog_last.titulo }}</h5>
-                <h5 class="">Canal: {{ prog_last.canal }}</h5>
-                <h5 class="">Fecha lanzamiento: {{ prog_last.fecha }}</h5>
-                <h5 class="">Descripción: {{ prog_last.desc }}</h5>
+        <div class="row">
+            <div class="col-sm-10 mb-3 p-2">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Título</th>
+                            <th scope="col">Canal</th>
+                            <th scope="col">Fecha realización</th>
+                            <th scope="col">Acciones</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for programa in programas %}
+                        <tr>
+                            <td>{{ programa.id }}</td>
+                            <td>{{ programa.titulo }}</td>
+                            <td>{{ programa.canal }}</td>
+                            <td>{{ programa.fecha }}</td>
+                            <td><a href="/ver/{{ programa.id }}">Ver</a> |
+                                <a href="/editar/{{ programa.id }}">Editar</a> |
+                                <a href="/borrar/{{ programa.id }}">Borrar</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
             </div>
 
-            <div class="col-sm-6 pt-3">
-                <img src="../static/img/tv_retro.png" width="400px" alt="Tv">
+            <div class="col-lg-2 pt-3">
+                <img src="../static/img/tv_retro.png" width="200px" alt="Tv">
             </div>
-        </div>
-        <div class="col-sm-6 pt-3">
-            <p class="">Ultima actualización: {{ prog_last.updated_at }}</p>
         </div>
         <nav class="navbar navbar-expand-md navbar-light bg-light">
             <div class="mx-0">
                 <div class="" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" aria-current="page" href="/editar/{{ prog_last.id }}">Editar</a></li>
-                        <li class="nav-item"><a class="nav-link" aria-current="page" href="/borrar">Borrar</a></li>
+                        <li class="nav-item"><a class="nav-link" aria-current="page" href="/">Agregar un nuevo programa</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
     </div>
+
+
+
 
     <!-- FOOTER -->
     <div id="footer " class="bg-dark ">

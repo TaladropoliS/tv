@@ -50,11 +50,11 @@
         <hr style="color: #0056b2" />
         <div class=" row">
             <div class="col-sm-6 pt-3">
-                <h4 class="">Tv Programa: {{ prog_last.id }}</h4>
-                <h5 class="">Titulo: {{ prog_last.titulo }}</h5>
-                <h5 class="">Canal: {{ prog_last.canal }}</h5>
-                <h5 class="">Fecha lanzamiento: {{ prog_last.fecha }}</h5>
-                <h5 class="">Descripción: {{ prog_last.desc }}</h5>
+                <h4 class="">Tv Programa: {{ prog.id }}</h4>
+                <h5 class="">Titulo: {{ prog.titulo }}</h5>
+                <h5 class="">Canal: {{ prog.canal }}</h5>
+                <h5 class="">Fecha lanzamiento: {{ prog.fecha }}</h5>
+                <h5 class="">Descripción: {{ prog.desc }}</h5>
             </div>
 
             <div class="col-sm-6 pt-3">
@@ -68,8 +68,8 @@
             <div class="mx-0">
                 <div class="" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" aria-current="page" href="/editar/{{ prog_last.id }}">Editar</a></li>
-                        <li class="nav-item"><a class="nav-link" aria-current="page" href="/borrar">Borrar</a></li>
+                        <li class="nav-item"><a class="nav-link" aria-current="page" href="/editar/{{ prog.id }}">Editar</a></li>
+                        <li class="nav-item"><a class="nav-link" aria-current="page" href="/borrar/{{ prog.id }}">Borrar</a></li>
                     </ul>
                 </div>
             </div>
