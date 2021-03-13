@@ -52,8 +52,7 @@
 
                 <!-- Validador del formulario -->
                 {% if messages %}
-                <ul class="messages">
-                    <li>Ingresar todos los campos</li>
+                <ul class="text-warning bg-dark messages">
                     {% for message in messages %}
                     <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
                     {% endfor %}

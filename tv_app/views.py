@@ -30,12 +30,18 @@ def editar(request, id):
         'prog': prog,
     }
     if request.method == "POST":
-        prog.titulo = request.POST['titulo']
-        prog.canal = request.POST['canal']
-        prog.fecha = request.POST['fecha']
-        prog.desc = request.POST['desc']
-        prog.save()
-        return redirect(f'/ver/{id}')
+        errors = Programa.objects.basic_validator(request.POST)
+        if len(errors) > 0:  # si hay errores, recorra cada par clave-valor y cree un mensaje flash
+            for key, value in errors.items():
+                messages.error(request, value)
+            return redirect(f'/editar/{id}')  # redirigir al mismo formulario
+        else:
+            prog.titulo = request.POST['titulo']
+            prog.canal = request.POST['canal']
+            prog.fecha = request.POST['fecha']
+            prog.desc = request.POST['desc']
+            prog.save()
+            return redirect(f'/ver/{id}')
     return render(request, 'editar.html', context)
 
 def ver(request, id):

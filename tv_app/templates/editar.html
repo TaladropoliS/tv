@@ -66,25 +66,32 @@
             </div>
             <div class="container-lg col-sm-6 bg-light mb-5 mt-2">
                 <h4 class="">Editar Programa</h4>
-                <hr style="color: #0056b2" />
+                <hr style="color: #0056b2" /> {% if messages %}
+                <ul class="text-warning bg-dark messages">
+                    {% for message in messages %}
+                    <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+
                 <form id="editar" name="editar" action="{{id}}" method="post"> {% csrf_token %}
                     <div class="mb-3 p-2">
                         <label for="titulo" class="form-label">Editar Título</label>
-                        <input type="text" id="titulo" name="titulo" class="form-control" placeholder="Editar Título del Programa" required>
+                        <input type="text" id="titulo" name="titulo" class="form-control" placeholder="Editar Título del Programa">
 
                         <div class="row">
                             <div class="col-sm-6">
                                 <label for="canal" class="form-label mt-4">Editar Canal</label>
-                                <input type="text" id="canal" name="canal" class="form-control" placeholder="Editar Canal" required>
+                                <input type="text" id="canal" name="canal" class="form-control" placeholder="Editar Canal">
                             </div>
                             <div class="col-sm-6">
                                 <label for="fecha" class="form-label mt-4">Editar Fecha</label>
-                                <input type="date" id="fecha" name="fecha" class="form-control" required>
+                                <input type="date" id="fecha" name="fecha" class="form-control">
                             </div>
                         </div>
 
                         <label for="desc" class="form-label mt-4">Editar Descripción</label>
-                        <textarea id="desc" name="desc" class="form-control" rows="3" maxlength="600" placeholder="Editar Descripción del Programa" required></textarea>
+                        <textarea id="desc" name="desc" class="form-control" rows="3" maxlength="600" placeholder="Editar Descripción del Programa"></textarea>
                     </div>
 
                     <input type="submit" id="editar" name="editar" value="Editar" class="btn btn-danger m-l-4"></button>
