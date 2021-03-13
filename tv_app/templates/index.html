@@ -49,29 +49,39 @@
         <div class=" row">
             <div class="col-sm-6 pt-3">
                 <h3 class="">Agregar un nuevo Programa</h3>
-                <!-- FORMULARIO PARA AGREGAR PROGRAMA -->
-                <!-- ACTION = Nombre del URL de Django que apunta al VIEWS que procesa la información enviada desde el formulario -->
 
+                <!-- Validador del formulario -->
+                {% if messages %}
+                <ul class="messages">
+                    <li>Ingresar todos los campos</li>
+                    {% for message in messages %}
+                    <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+
+                <!-- FORMULARIO PARA AGREGAR PROGRAMA -->
+                <!-- ACTION = VIEWS que procesa la información enviada desde el formulario -->
                 <form id="crear_programa" name="crear_programa" action="crear_programa" method="post"> {% csrf_token %}
                     <div class="mb-3 p-2">
                         <label for="titulo" class="form-label">Título</label>
-                        <input type="text" id="titulo" name="titulo" class="form-control" placeholder="Título del Programa" required>
+                        <input type="text" id="titulo" name="titulo" class="form-control" placeholder="Título del Programa">
 
                         <div class="row">
                             <div class="col-sm-6">
                                 <label for="canal" class="form-label mt-4">Canal</label>
-                                <input type="text" id="canal" name="canal" class="form-control" placeholder="Canal" required>
+                                <input type="text" id="canal" name="canal" class="form-control" placeholder="Canal">
                             </div>
                             <div class="col-sm-6">
                                 <label for="fecha" class="form-label mt-4">Fecha</label>
-                                <input type="date" id="fecha" name="fecha" class="form-control" required>
+                                <input type="date" id="fecha" name="fecha" class="form-control">
                             </div>
                         </div>
 
                         <label for="desc" class="form-label mt-4">Descripción</label>
-                        <textarea id="desc" name="desc" class="form-control" rows="3" maxlength="600" placeholder="Descripción del Programa" required></textarea>
+                        <textarea id="desc" name="desc" class="form-control" rows="3" maxlength="600" placeholder="Descripción del Programa"></textarea>
                     </div>
-                    <input type="submit" id="crear" name="cxrear" value="Crear Programa" class="btn btn-dark m-l-4"></button>
+                    <input type="submit" id="crear" name="crear" value="Crear Programa" class="btn btn-dark m-l-4"></button>
                 </form>
             </div>
 

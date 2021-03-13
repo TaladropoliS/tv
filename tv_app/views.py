@@ -1,17 +1,21 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, HttpResponse, redirect
+from django.contrib import messages
 from .models import Programa
-# from django.contrib import messages
-# from django.db.models import Q, Max, Count, F
+from django.db.models import Q, Max, Count, F
 
 def inicio(request):
     return render(request, 'index.html')
 
 def crear(request):
-    Programa.objects.create(titulo=request.POST['titulo'],
-                            canal=request.POST['canal'],
-                            fecha=request.POST['fecha'],
-                            desc=request.POST['desc'])
-    return redirect(programa)
+    errors = Programa.objects.basic_validator(request.POST)
+    if len(errors) > 0: # si hay errores, recorra cada par clave-valor y cree un mensaje flash
+        for key, value in errors.items():
+            messages.error(request, value)
+        return redirect('/') # redirigir al mismo formulario
+    else:
+        Programa.objects.create(titulo=request.POST['titulo'], canal=request.POST['canal'], fecha=request.POST['fecha'], desc=request.POST['desc'])
+        # messages.success(request, "El programa fue creado correctamente") #se puede mostrar un mensaje si se mantiene en la misma pagina
+        return redirect(programa)
 
 def programa(request):
     prog_last = Programa.objects.last()
